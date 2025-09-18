@@ -10,10 +10,10 @@
 		<SignAssembly>False</SignAssembly> 
 		<RepositoryUrl>https://github.com/Layui-WPF-Team/Layui-WPF</RepositoryUrl> 
 		<PackageTags>WPF,LayUI,layui</PackageTags> 
-		<PackageReleaseNotes>解决折叠板动画问题</PackageReleaseNotes> 
+		<PackageReleaseNotes>修复公告栏时间动态刷新问题</PackageReleaseNotes> 
 		<Authors>wenke</Authors> 
 		<Title>这是一款WPF版本的Layui风格的前端UI组件库</Title> 
-		<Version>1.0.3.4</Version> 
+		<Version>1.0.3.5</Version> 
 		<Copyright>© MaShangFeng</Copyright>
 		<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
 		<Company />
