@@ -302,11 +302,14 @@ namespace LayUI.Wpf.Controls
             var textBox = (TextBox)sender;
             string currentText = textBox.Text;
 
-            // 允许的按键：主键盘数字、小键盘数字、退格、小数点
+            // 允许的按键：主键盘数字、小键盘数字、退格、小数点、左右方向键、负号
             bool isMainDigit = e.Key >= Key.D0 && e.Key <= Key.D9;
             bool isNumpadDigit = e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9;
             bool isBackspace = e.Key == Key.Back;
             bool isDecimal = e.Key == Key.Decimal || e.Key == Key.OemPeriod;
+            bool isOemMinus = e.Key == Key.OemMinus;
+            bool isRight = e.Key == Key.Right;
+            bool isLeft = e.Key == Key.Left;
 
             // 禁止输入多个小数点
             if (isDecimal && currentText.Contains('.'))
@@ -314,9 +317,15 @@ namespace LayUI.Wpf.Controls
                 e.Handled = true;
                 return;
             }
+            //禁止输入多个减号
+            if (isOemMinus && currentText.Contains('-'))
+            {
+                e.Handled = true;
+                return;
+            }
 
             // 允许数字、退格、小数点输入
-            if (!(isMainDigit || isNumpadDigit || isBackspace || isDecimal))
+            if (!(isMainDigit || isNumpadDigit || isBackspace || isDecimal || isOemMinus || isRight || isLeft))
             {
                 e.Handled = true;
             }
